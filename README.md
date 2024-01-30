@@ -30,7 +30,40 @@ CineMood is not just another movie recommendation system; it's your personal mov
 
 5. **Personal Touch:** Like a friend who knows you too well, CineMood learns your movie tastes over time. It tailors recommendations based on your past choices, making each movie night a personalized adventure.
 
+## How to Run Locally
+
+Follow these steps to run CineMood on your local machine:
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) installed on your machine
+- [npm](https://www.npmjs.com/) (Node Package Manager) comes with Node.js installation
+
+### Clone the Repository
+
+`git clone https://github.com/kalviumcommunity/S54_CineMood.git`
+
+`cd S54_CineMood`
+
+### Install Dependencies
+`npm install`
+
+### Run the Application
+
+`npm start`
+
+Visit http://localhost:3000 in your browser to access CineMood.
+
+If everything is set up correctly, you should see CineMood running locally, ready for your movie mood exploration!
+
 ## Contributing
 
-We welcome contributions! If you have ideas for new features, find a bug, or just want to improve the project, feel free to open an issue or submit a pull request. Check out our [Contribution Guidelines](link-to-contribution-guidelines) for more details.
+We welcome contributions! If you have ideas for new features, find a bug, or just want to improve the project, feel free to open an issue or submit a pull request.
+
+### How to Contribute
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature/new-feature`.
+3. Make your changes and commit: `git commit -m 'Add a new feature'`.
+4. Push to your forked repository: `git push origin feature/new-feature`.
+6. Create a pull request to the main repository.
 
