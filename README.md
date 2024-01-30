@@ -30,6 +30,14 @@ CineMood is not just another movie recommendation system; it's your personal mov
 
 5. **Personal Touch:** Like a friend who knows you too well, CineMood learns your movie tastes over time. It tailors recommendations based on your past choices, making each movie night a personalized adventure.
 
+## Technologies Used
+
+FrontEnd - **React**, **Vite**
+
+BackEnd - **Express.js**, **Node.js**
+
+Data Base - **MongoDB**
+
 ## How to Run Locally
 
 Follow these steps to run CineMood on your local machine:
