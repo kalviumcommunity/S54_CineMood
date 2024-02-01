@@ -4,8 +4,8 @@
   "description": "CineMood - Where Emotions Meet Motion Pictures",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js", 
-    "dev": "nodemon server.js", 
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "build": "vite build",
     "serve": "vite preview"
   },
@@ -13,11 +13,19 @@
     "type": "git",
     "url": "https://github.com/kalviumcommunity/S54_CineMood.git"
   },
-  "keywords": ["movie", "recommendation", "system", "mood", "react", "express", "mongodb"],
+  "keywords": [
+    "movie",
+    "recommendation",
+    "system",
+    "mood",
+    "react",
+    "express",
+    "mongodb"
+  ],
   "author": "Yagna Kusumanchi <kusumanchi.yagna@kalvium.community>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "mongoose": "^6.0.8"
   },
   "devDependencies": {
