@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 
 async function connectMongoDB() {
     try {
-        await mongoose.connect("mongodb+srv://Yagna82kb:Yagna123@cluster0.ygxktza.mongodb.net/ASAPProjectCINEMOOD?retryWrites=true&w=majority")
+        await mongoose.connect(process.env.MongoURI)
         console.log("🚀Connected to MongoDB")
         return true
     }
