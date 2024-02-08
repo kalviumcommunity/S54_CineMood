@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
 
+require("dotenv").config()
 const mongoose = require('mongoose')
-
 
 async function connectMongoDB() {
     try {
@@ -17,7 +17,6 @@ async function connectMongoDB() {
         })
     }
 }
-
 
 const port = 3000
 
