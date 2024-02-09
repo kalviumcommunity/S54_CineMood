@@ -1,5 +1,5 @@
-const createHandler = (re1,res)=>{
-    res.send(req.body)
+const createHandler = (req,res)=>{
+    // res.send(req.body)
     res.status(201).json({ message: 'User created successfully' })
 }
 const readHandler = (re1,res)=>{
