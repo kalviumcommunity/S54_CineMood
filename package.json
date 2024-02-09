@@ -25,6 +25,7 @@
   "author": "Yagna Kusumanchi <kusumanchi.yagna@kalvium.community>",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "mongoose": "^6.12.6"
   },
