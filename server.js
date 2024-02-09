@@ -4,16 +4,16 @@ const app = express()
 require("dotenv").config()
 const mongoose = require('mongoose')
 
+app.use('/api', require('./routes/User'));
+
 async function connectMongoDB() {
     try {
         await mongoose.connect(process.env.MongoURI)
         console.log("🚀Connected to MongoDB")
-        return true
     }
     catch {
         (err => {
             console.log("Connection to MongoDB Failed")
-            return false
         })
     }
 }
@@ -21,11 +21,8 @@ async function connectMongoDB() {
 const port = 3000
 
 app.get('/', (req, res) => {
-    connectMongoDB().then(result => {
-        res.send(`Mongo Connected ,${result}`)
-    }).catch(err => {
-        res.send(`Mongo not Connected ,${err}`)
-    })
+    connectMongoDB()
+    res.send("Welcome to home page")
 })
 app.get('/ping', (req, res) => res.send('Ping - Pong'))
 
