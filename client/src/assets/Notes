@@ -1,0 +1,6 @@
+Color Theme: 
+
+Background: #00050D
+Buttons (Normal): Background: #33373d, Text: #aaaaaa
+Buttons (Hover): Background: #191e25, Text: #ffffff
+Text: Regular text: #aaaaaa, Headings/titles: #ffffff
