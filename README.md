@@ -74,4 +74,3 @@ We welcome contributions! If you have ideas for new features, find a bug, or jus
 3. Make your changes and commit: `git commit -m 'Add a new feature'`.
 4. Push to your forked repository: `git push origin feature/new-feature`.
 6. Create a pull request to the main repository.
-
