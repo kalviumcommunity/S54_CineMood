@@ -1,9 +1,27 @@
-const createHandler = (req,res)=>{
-    // res.send(req.body)
-    res.status(201).json({ message: 'User created successfully' })
+const mongoose = require('mongoose')
+
+const Users = require("../DataBase/MongoSchemas")
+
+const createHandler = async (req,res)=>{
+
+    const {Name,email,password,confirmPassword} = req.body
+
+    try{
+        await Users.create({
+            Name,
+            email,
+            password,
+            confirmPassword
+        })
+        res.status(201).json({ message: 'User created successfully' })
+
+    }catch (err){
+        res.send({status:"Error"})
+    }
+
 }
 const readHandler = (re1,res)=>{
-    // res.send(rew.body)
+
     res.status(200).json({message: 'User fetched successfully'})
 }
 const updateHandler = (re1,res)=>{

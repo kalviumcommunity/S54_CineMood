@@ -1,14 +1,21 @@
 import * as React from 'react'
+import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 
-// 1. import `ChakraProvider` component
 import { ChakraProvider } from '@chakra-ui/react'
 import Home from './components/Home'
+import Signin from './components/Login_Signup/Signin'
+import Login from './components/Login_Signup/Login';
 
 function App() {
-  // 2. Wrap ChakraProvider at the root of your app
   return (
     <ChakraProvider>
-      <Home />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Signin/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/home' element={<Home/>}/>
+        </Routes>
+      </BrowserRouter>
     </ChakraProvider>
   )
 }
