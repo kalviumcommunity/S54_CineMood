@@ -11,7 +11,8 @@ const createHandler = async (req,res)=>{
             Name,
             email,
             password,
-            confirmPassword
+            confirmPassword,
+            list:[]
         })
         res.status(201).json({ message: 'User created successfully' })
 
