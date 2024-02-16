@@ -11,12 +11,13 @@ const createHandler = async (req,res)=>{
             Name,
             email,
             password,
-            confirmPassword
+            confirmPassword,
+            list:[]
         })
         res.status(201).json({ message: 'User created successfully' })
 
     }catch (err){
-        res.send({status:"Error"})
+        res.status(400).send({message:"User already exists"})
     }
 
 }
