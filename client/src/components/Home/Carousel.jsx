@@ -9,7 +9,7 @@ const Carousel = () => {
     const moods = ["Epic", "Adventure", "Action"]
     return (
         <div>
-            <Box w="100%" bg="#00050D">
+            <Box w="100%" bg="#00050D" pt={"5%"}>
                 <HStack w="96%" alignItems={'center'} mx={'auto'} color="white">
                     <ArrowLeftIcon />
                     <Box w="94%" mx="auto" color={'white'}>

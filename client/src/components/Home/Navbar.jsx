@@ -49,14 +49,15 @@ const Logo = () => (
   // NavBar component
   const NavBar = () => {
     return (
-      <Box w="100%" bg="#00050D" pb={2}>
+      <Box w="100%" bg="transparent" pb={2} position={"fixed"} zIndex="10">
         <Box
           w="70%"
           mx="auto"
           p={2}
-          bg="#191e25"
-          rounded="md"
-          boxShadow="rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset"
+          bg="#00050D"
+          rounded="50"
+          border="1px solid #191e25"
+          boxShadow="0px 14px 28px rgba(0, 0, 0, 1), 0px 10px 10px rgba(0, 0, 0, 0.25)"
           position="relative"
           mt={4}
         >

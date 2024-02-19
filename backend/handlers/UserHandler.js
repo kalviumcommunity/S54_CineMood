@@ -1,5 +1,3 @@
-const mongoose = require('mongoose')
-
 const Users = require("../DataBase/MongoSchemas")
 
 const createHandler = async (req,res)=>{
