@@ -4,13 +4,15 @@ const app = express()
 require("dotenv").config()
 const mongoose = require('mongoose')
 const cors = require('cors')
-const router = require("./routes/User")
+const UserRouter = require("./routes/User")
+const MovieRouter = require("./routes/Movie")
 
 app.use(cors())
 app.use(express.json())
 
 
-app.use('/', router);
+app.use('/user', UserRouter);
+app.use('/movies', MovieRouter);
 
 async function connectMongoDB() {
     console.log("process.env.MongoURI: ", process.env.MongoURI);

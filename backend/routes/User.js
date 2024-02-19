@@ -2,9 +2,9 @@ const express = require("express")
 const router = express.Router()
 
 const {createHandler,readHandler,updateHandler,deleteHandler} = require("../handlers/UserHandler")
-router.post('/user', createHandler);
-router.get('/user/:id', readHandler);
-router.put('/user/:id', updateHandler);
-router.delete('/user/:id', deleteHandler);
+router.post('/', createHandler);
+router.get('/:id', readHandler);
+router.put('/:id', updateHandler);
+router.delete('/:id', deleteHandler);
 
 module.exports = router;
