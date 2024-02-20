@@ -9,8 +9,6 @@ const mongoose = require('mongoose')
 const userDetailsSchema = new mongoose.Schema(
     {
         Name:String,
-        email:String,
-        password:String,
         email:{type:String, unique:true},
         password:String, 
         confirmPassword:String,
