@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import M_MovieCard from './M_MovieCard'
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Flex, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
 import NavBar from '../Home/Navbar'
+import Create_Movie from './Create_Movie'
+import { Route, Routes } from 'react-router-dom'
 
 function Movies_Page({lang}) {
     const [movieList,setMovieList] = useState([])
+    const [language, setLanguage] = useState("")
+
     useEffect(()=>{
         const fetchMovies = async () => {
             try {
@@ -22,18 +26,65 @@ function Movies_Page({lang}) {
       
           fetchMovies();
     },[])
+
+    const tabsHandler = (e)=>{
+      switch (e){
+        case 0: setLanguage("All")
+        case 1: setLanguage("Hindi")
+        case 2: setLanguage("English")
+        case 3: setLanguage("Telugu")
+        case 4: setLanguage("Malayalam")
+        case 5: setLanguage("Bengali")
+        case 6: setLanguage("Punjabi")
+        case 7: setLanguage("Others")
+        default: null;
+      }
+    }
+
   return (
     <div>
         <NavBar/>
-        <Flex wrap="wrap" justifyContent={'space-around'} pt={"6%"} bg="#00050D" rowGap={10}>
-            {
-                movieList.filter((movie)=>{
-                    return movie.Languages.indexOf(lang) !==-1
-                }).map((movie_data)=>{
-                    return <M_MovieCard Movie_Data={movie_data}/>
-                })
-            }
+        <Tabs pt={"6%"} bg="#00050D" color="white" borderColor={"#33373D"} onChange={tabsHandler}>
+          <TabList>
+            <Tab>All</Tab>
+            <Tab>Hindi</Tab>
+            <Tab>English</Tab>
+            <Tab>Telugu</Tab>
+            <Tab>Malayalam</Tab>
+            <Tab>Bengali</Tab>
+            <Tab>Punjabi</Tab>
+            <Tab>Others</Tab>
+          </TabList>
+
+          <TabPanels>
+            <TabPanel>
+            </TabPanel>
+            <TabPanel>
+            </TabPanel>
+            <TabPanel>
+            </TabPanel>
+            <TabPanel>
+            </TabPanel>
+            <TabPanel>
+            </TabPanel>
+            <TabPanel>
+            </TabPanel>
+            <TabPanel>
+            </TabPanel>
+            <TabPanel>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
+        <Flex wrap="wrap" justifyContent={'space-around'} bg="#00050D" rowGap={10}>
+              {
+                  movieList.filter((movie)=>{
+                      return movie.Languages.indexOf(lang) !==-1
+                  }).map((movie_data)=>{
+                      return <M_MovieCard Movie_Data={movie_data}/>
+                  })
+              }
         </Flex>
+        <Create_Movie />
     </div>
 
   )

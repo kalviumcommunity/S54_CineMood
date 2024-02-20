@@ -10,7 +10,8 @@ const createMovie = async (req, res) => {
         res.status(201).json({ message: 'Movie uploaded successfully' })
 
     } catch (err) {
-        res.status(400).json({ message: "Movie upload failed", error: err.message })
+        res.send({status:"Error"})
+        res.status(400).send({message:"User already exists"})
     }
 }
 
