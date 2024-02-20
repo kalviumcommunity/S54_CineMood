@@ -10,7 +10,6 @@ const MovieRouter = require("./routes/Movie")
 app.use(cors())
 app.use(express.json())
 
-
 app.use('/user', UserRouter);
 app.use('/movies', MovieRouter);
 
