@@ -25,7 +25,7 @@ function Movies_Page({lang}) {
           };
       
           fetchMovies();
-    },[])
+    },[movieList])
 
     const tabsHandler = (e)=>{
       switch (e){
@@ -56,31 +56,13 @@ function Movies_Page({lang}) {
             <Tab>Others</Tab>
           </TabList>
 
-          <TabPanels>
-            <TabPanel>
-            </TabPanel>
-            <TabPanel>
-            </TabPanel>
-            <TabPanel>
-            </TabPanel>
-            <TabPanel>
-            </TabPanel>
-            <TabPanel>
-            </TabPanel>
-            <TabPanel>
-            </TabPanel>
-            <TabPanel>
-            </TabPanel>
-            <TabPanel>
-            </TabPanel>
-          </TabPanels>
         </Tabs>
-        <Flex wrap="wrap" justifyContent={'space-around'} bg="#00050D" rowGap={10}>
+        <Flex wrap="wrap" justifyContent={'space-around'} bg="#00050D" rowGap={10} pt={8}>
               {
                   movieList.filter((movie)=>{
                       return movie.Languages.indexOf(lang) !==-1
-                  }).map((movie_data)=>{
-                      return <M_MovieCard Movie_Data={movie_data}/>
+                  }).map((movie_data, id)=>{
+                      return <M_MovieCard key={id} Movie_Data={movie_data}/>
                   })
               }
         </Flex>

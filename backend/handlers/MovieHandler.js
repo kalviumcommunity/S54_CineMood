@@ -5,7 +5,18 @@ const createMovie = async (req, res) => {
 
     try {
         await Movies.create({
-            Title, Title_Img, Rating, TrailerURL, CoverIMG, Moods, Play, Likes: 0, Dislikes: 0, plot_summary, Release_Year, Languages
+            Title, 
+            Title_Img, 
+            Rating, 
+            TrailerURL, 
+            CoverIMG, 
+            Moods, 
+            Play, 
+            Likes: 0, 
+            Dislikes: 0, 
+            plot_summary, 
+            Release_Year, 
+            Languages
         })
         res.status(201).json({ message: 'Movie uploaded successfully' })
 
