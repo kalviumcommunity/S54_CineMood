@@ -1,0 +1,14 @@
+{
+    "Title": "Jersey",
+    "Title_Img":"https://img10.hotstar.com/image/upload/f_auto,h_156/sources/r1/cms/prod/3841/1707280563841-t",
+    "Rating": 4.8,
+    "TrailerURL": "https://www.youtube.com/watch?v=acz0QwGTuw0",
+    "CoverIMG": "https://img10.hotstar.com/image/upload/f_auto/sources/r1/cms/prod/4553/1707280554553-i",
+    "Moods": ["Inspirational", "Dramatic", "Sporty"],
+    "Play": "https://www.hotstar.com/in/movies/jersey/1260040826/watch?filters=content_type%3Dmovie",
+    "Likes": 1200,
+    "Dislikes": 40,
+    "plot_summary": "A failed cricketer decides to revive his cricketing career in his mid-30s despite everyone being skeptical of his ability to do so.",
+    "Release_Year": 2019,
+    "Languages": ["Telugu"]
+  }
