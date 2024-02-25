@@ -1,13 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
 import M_MovieCard from './M_MovieCard'
-import { Box, Flex, Tab, TabList, Tabs } from '@chakra-ui/react'
+import { Box, Center, Flex, Tab, TabList, Tabs } from '@chakra-ui/react'
 import NavBar from '../Home/Navbar'
 import Create_Movie from './Create_Movie'
 import { AppContext } from '../../context/ParentContext'
 import Update_Delete from './Update_Delete'
+import {HashLoader} from "react-spinners"
 
 function Movies_Page() {
   const { movieList,setMovieList,language, setLanguage, MListRender } = useContext(AppContext)
+  const [isLoading, setIsLoading] = useState(true)
 
     useEffect(()=>{
         const fetchMovies = async () => {
@@ -18,7 +20,8 @@ function Movies_Page() {
               }
       
               const data = await response.json();
-              setMovieList(data.data);  // Assuming your data is nested under a 'data' property
+              setMovieList(data.data);
+              setIsLoading(false)
             } catch (error) {
               console.error('Error fetching movies:', error.message);
             }
@@ -67,7 +70,16 @@ function Movies_Page() {
           </TabList>
 
         </Tabs>
-        {movieList==[]?<HashLoader color="#1a98ff" size={100}/>:language=="All"?
+        {isLoading&&
+        <Box bg="#00050D">
+          <Center py="250">
+          <HashLoader color="#1a98ff" size={75}/>
+          </Center>
+        </Box>
+        
+        }
+
+        {language=="All"?
         <Flex wrap="wrap" justifyContent={'space-around'} bg="#00050D" rowGap={10} pt={8}>
         {
             movieList.map((movie_data, id)=>{
