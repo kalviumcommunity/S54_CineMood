@@ -2,12 +2,14 @@ import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, Center, Divider, 
 import React from 'react'
 import { BsFillStarFill, BsHandThumbsDown, BsHandThumbsUp, BsPlayCircleFill, BsPlayFill } from "react-icons/bs";
 import {AddIcon} from '@chakra-ui/icons'
+import Update_Delete from './Update_Delete';
 
 const M_MovieCard = ({Movie_Data}) => {
 
   return (
     <div>
         <Card maxW='sm'>
+          <Update_Delete Movie_Data={Movie_Data}/>
         <Box bg="#00050D" p={4} borderRadius="md" border="2px solid #33373d">
                 <Stack spacing={4}>
                 <Image src={Movie_Data.CoverIMG} alt={Movie_Data.Title} borderRadius="lg" />

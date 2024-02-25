@@ -1,12 +1,14 @@
 import { AddIcon } from '@chakra-ui/icons'
 import { Box, Button, FormControl, FormLabel, IconButton, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure,Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
+import { AppContext } from '../../context/ParentContext'
 
 const Create_Movie = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [scrollBehavior, setScrollBehavior] = React.useState('inside')
     const { handleSubmit, register, formState: { errors, isSubmitting }, getValues } = useForm()
+    const {MListRender, setMListRender} = useContext(AppContext)
 
     const initialRef = React.useRef(null)
     const submitHandler = (values) => {
@@ -14,10 +16,10 @@ const Create_Movie = () => {
       return new Promise((resolve) => {
         setTimeout(() => {
           var {Title,Title_Img,Rating, TrailerURL,CoverIMG,Moods,Play,plot_summary,Release_Year,Languages} = values
-          // console.log(values,Title,Title_Img,Rating, TrailerURL,CoverIMG,Moods,Play,plot_summary,Release_Year,Languages)
+          console.log(values,Title,Title_Img,Rating, TrailerURL,CoverIMG,Moods,Play,plot_summary,Release_Year,Languages)
           Moods = Moods.split(',')
           Languages = Languages.split(',')
-          fetch("http://localhost:3000/movies", {
+          fetch("https://cinemood-b811.onrender.com/movies", {
           method: "POST",
           crossDomain: true,
           headers: {
@@ -32,6 +34,7 @@ const Create_Movie = () => {
           .then((data) => {
             console.log(data.message)
             onClose()
+            setMListRender(MListRender+1)
           }).catch((err)=>console.log(err))
           resolve()
           }, 1000)

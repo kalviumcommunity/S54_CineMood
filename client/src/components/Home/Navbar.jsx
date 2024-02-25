@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Box,
   Flex,
@@ -12,6 +12,7 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, SearchIcon } from "@chakra-ui/icons";
+import { AppContext } from "../../context/ParentContext";
 
 // Logo component
 const Logo = () => (
@@ -48,6 +49,7 @@ const Logo = () => (
   
   // NavBar component
   const NavBar = () => {
+    
     return (
       <Box w="100%" bg="transparent" pb={2} position={"fixed"} zIndex="10">
         <Box
