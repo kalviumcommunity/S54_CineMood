@@ -6,9 +6,9 @@ const MovieValidation = require("../handlers/MovieValidation")
 const validateMovie = (req, res, next) => {
     let { error } = MovieValidation.validate(req.body);
     if (error) {
-      res.status(404).send(error.details[0].message);
+        res.status(404).send(error.details[0].message);
     } else {
-      next();
+        next();
     }
 };
 

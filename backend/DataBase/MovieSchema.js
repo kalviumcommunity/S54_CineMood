@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const MovieSchema = new mongoose.Schema(
     {
         Title: String,
-        Title_Img:String,
+        Title_Img: String,
         Rating: Number,
         TrailerURL: String,
         CoverIMG: String,
@@ -13,10 +13,10 @@ const MovieSchema = new mongoose.Schema(
         Dislikes: Number,
         plot_summary: String,
         Release_Year: Number,
-        Languages:Array
+        Languages: Array
     }
 )
 
-const Movies = mongoose.model("movies",MovieSchema);
+const Movies = mongoose.model("movies", MovieSchema);
 
 module.exports = Movies
