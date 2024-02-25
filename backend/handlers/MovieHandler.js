@@ -1,9 +1,10 @@
 const Movies = require("../DataBase/MovieSchema")
 
-const createMovie = async (req, res) => {
+const createMovie = async (req, res,) => {
     const { Title, Title_Img, Rating, TrailerURL, CoverIMG, Moods, Play, plot_summary, Release_Year, Languages } = req.body
 
     try {
+
         await Movies.create({
             Title, 
             Title_Img, 
