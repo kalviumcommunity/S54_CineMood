@@ -13,6 +13,7 @@ const Update_Delete = ({ Movie_Data }) => {
     const {MListRender, setMListRender} = useContext(AppContext)
 
     const initialRef = React.useRef(null)
+    
     const submitHandler = (values) => {
 
         return new Promise((resolve) => {
@@ -26,7 +27,7 @@ const Update_Delete = ({ Movie_Data }) => {
                         onClose()
                     })
                     .catch(error => {
-                        console.error('Error updating movie:', error);
+                        console.error(error);
                     });
                 resolve()
             }, 1000)
