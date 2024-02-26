@@ -1,10 +1,4 @@
 const mongoose = require('mongoose')
-// const Joi = require('joi')
-
-// const userDetailsSchema = new Joi.object({
-//     Name: Joi.string().required(),
-//     email: Joi.string().required()
-// })
 
 const userDetailsSchema = new mongoose.Schema(
     {
