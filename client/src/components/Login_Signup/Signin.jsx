@@ -1,6 +1,9 @@
-import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { useContext, useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 
 import {
@@ -19,6 +22,7 @@ import {
   FormErrorMessage,
   Text,
 } from '@chakra-ui/react';
+import { AppContext } from '../../context/ParentContext';
 
 const Signin = () => {
   const [show, setShow] = useState(false);
@@ -26,41 +30,72 @@ const Signin = () => {
   const handleClick = () => setShow(!show);
   const handleClick2 = () => setCShow(!cShow);
   const [error, setError] = useState(null)
+  const {setSignedIn} = useContext(AppContext)
 
+  const Navigate = useNavigate()
   const { handleSubmit, register, formState: { errors, isSubmitting }, getValues } = useForm()
-  
 
+
+  const success = ()=>{
+
+    toast.success('User Registered Successfully', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+  }
+
+  const failed = (error)=>{
+    toast.error(error, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+  }
   const submitHandler = (values) => {
 
-    
     return new Promise((resolve) => {
       setTimeout(() => {
-        const {Name,email,password, confirmPassword} = values
-          // console.log(Name,email,password, confirmPassword)
-        fetch("http://localhost:3000/user", {
-          method: "POST",
-          crossDomain: true,
+        axios.post("http://localhost:3000/user", values, {
           headers: {
-            "content-type": "application/json",
-            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Accept": "application/json",
             "Access-Control-Allow-Origin": "*",
           },
-          body: JSON.stringify({
-            Name, email, password, confirmPassword
-          })
-        }).then((res) => res.json())
-          .then((data) => {
-            if(data.message == "User already exists"){
-              setError("User already exists with this mail")
+        })
+          .then(response => {
+            if (response.data.message === "User already exists") {
+              setError("User already exists with this email");
             }
-          }).catch((err)=>console.log(err))
-            resolve()
-        }, 1000)
-      })
+            if(response.data.message =="User created successfully"){
+              success()
+              setTimeout(() => {
+                Navigate('/login')
+              }, 4000);
+            }
+          })
+          .catch(error => {
+            failed(error)
+          });
+        resolve()
+      }, 1000)
+    })
   }
 
   return (
+    <>
     <Container maxW="100%" p={{ base: 5, md: 10 }} bg="#00050D" h="100vh" display={"flex"} alignItems={"center"} justifyContent={"center"}>
+      <ToastContainer/>
       <Center>
         <Stack spacing={4}>
           <Stack align="center">
@@ -86,7 +121,7 @@ const Signin = () => {
               <FormControl >
                 <FormLabel htmlFor="password">Password</FormLabel>
                 <InputGroup size="md">
-                  <Input rounded="md" id="password" type={show ? 'text' : 'password'} {...register("password", {required:'Enter Password', minLength:{value:8, message:'Enter minimum 8 chars'},pattern:{value:'/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\])/', message:"Password Not Valid"}})}/>
+                  <Input rounded="md" id="password" type={show ? 'text' : 'password'} {...register("password", { required: 'Enter Password', minLength: { value: 8, message: 'Enter minimum 8 chars' }, pattern: { value: '/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\])/', message: "Password Not Valid" } })} />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" rounded="md" bg='#79b8f3' _hover={{ bg: useColorModeValue('gray.400', 'gray.800') }} onClick={handleClick}>
                       {show ? 'Hide' : 'Show'}
@@ -100,7 +135,7 @@ const Signin = () => {
               <FormControl >
                 <FormLabel htmlFor="confirmPassword">Confirm Password</FormLabel>
                 <InputGroup size="md">
-                  <Input rounded="md" id='confirmPassword' type={cShow ? 'text' : 'password'} {...register("confirmPassword",{required:'Confirm Your Password',validate: value => value === getValues("password") || "The passwords do not match"})}/>
+                  <Input rounded="md" id='confirmPassword' type={cShow ? 'text' : 'password'} {...register("confirmPassword", { required: 'Confirm Your Password', validate: value => value === getValues("password") || "The passwords do not match" })} />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" rounded="md" bg='#79b8f3' _hover={{ bg: useColorModeValue('gray.400', 'gray.800') }} onClick={handleClick2}>
                       {cShow ? 'Hide' : 'Show'}
@@ -117,13 +152,15 @@ const Signin = () => {
                 Sign in
               </Button>
               <Stack direction="row" justifyContent="center" w="100%">
-                <Link to="/login" fontSize={{ base: 'md', sm: 'md' }} _hover={{textDecoration:"underline"}} >Already, I'm a member</Link>
+                <Link to="/login" fontSize={{ base: 'md', sm: 'md' }} _hover={{ textDecoration: "underline" }} >Already, I'm a member</Link>
               </Stack>
             </VStack>
           </VStack>
         </Stack>
       </Center>
+
     </Container>
+    </>
   );
 };
 
