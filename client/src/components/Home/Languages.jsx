@@ -83,7 +83,6 @@ const Languages = () => {
                         Watch in Your Language
                     </Text>
                 </Box>
-
             </Box>
             <HStack alignItems={'center'} mx={'auto'} color="white" w="100%" bg="#00050D">
                 <ArrowLeftIcon m="1%" onClick={leftFocus} _hover={{ 'color': leftState?"#1A98FF":"#00050D"}} cursor="pointer" color={leftState?"white":"#00050D"}/>
@@ -107,7 +106,6 @@ const Languages = () => {
                         if (id == Languages_Data.length - 1) {
                             return <Language_card htmldATA={right} key={id} Name={language.Name} IMG_LINK={language.IMG_LINK} />
                         }
-                        console.log(Languages_Data.length - 1)
                         return <Language_card key={id} Name={language.Name} IMG_LINK={language.IMG_LINK} />
                     })}
                 </Box>

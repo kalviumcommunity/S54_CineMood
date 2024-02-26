@@ -9,7 +9,8 @@
         "Play": "https://www.hotstar.com/in/movies/baahubali-the-beginning/1000074338/watch?filters=content_type%3Dmovie",
         "plot_summary": "In the kingdom of Mahishmati, a young prince named Baahubali embarks on a quest to fulfill his destiny.",
         "Release_Year": 2015,
-        "Languages": ["Telugu"]
+        "Languages": ["Telugu"],
+        "CreatedBy":"Admin"
       },
       {
         "Title": "Jersey",
@@ -23,7 +24,8 @@
         "Dislikes": 40,
         "plot_summary": "A failed cricketer decides to revive his cricketing career in his mid-30s despite everyone being skeptical of his ability to do so.",
         "Release_Year": 2019,
-        "Languages": ["Telugu"]
+        "Languages": ["Telugu"],
+        "CreatedBy":"Admin"
       },
       {
         "Title": "Arjun Reddy",
@@ -37,7 +39,8 @@
         "Dislikes": 20,
         "plot_summary": "A brilliant medical student spirals into self-destruction after a failed relationship and turns to alcohol and drugs.",
         "Release_Year": 2017,
-        "Languages": ["Telugu"]
+        "Languages": ["Telugu"],
+        "CreatedBy":"Admin"
       },
       {
         "Title": "Ala Vaikunthapurramuloo",
@@ -51,7 +54,8 @@
         "Dislikes": 25,
         "plot_summary": "A man discovers his true identity and the reason for his existence after a series of events.",
         "Release_Year": 2020,
-        "Languages": ["Telugu"]
+        "Languages": ["Telugu"],
+        "CreatedBy":"Admin"
       },
       {
         "Title": "Sarileru Neekevvaru",
@@ -65,7 +69,8 @@
         "Dislikes": 18,
         "plot_summary": "An Army Major is assigned to covertly protect a family, leading to unexpected comedic situations.",
         "Release_Year": 2020,
-        "Languages": ["Telugu"]
+        "Languages": ["Telugu"],
+        "CreatedBy":"Admin"
       },
       {
         "Title": "F2: Fun and Frustration",
@@ -79,7 +84,8 @@
         "Dislikes": 22,
         "plot_summary": "Two frustrated husbands decide to enjoy their lives when their wives go on a vacation.",
         "Release_Year": 2019,
-        "Languages": ["Telugu"]
+        "Languages": ["Telugu"],
+        "CreatedBy":"Admin"
       },
       {
         "Title": "Goodachari",
@@ -93,7 +99,8 @@
         "Dislikes": 20,
         "plot_summary": "A young NSA agent sets out to unravel the mystery behind his father's death and discovers shocking secrets.",
         "Release_Year": 2018,
-        "Languages": ["Telugu"]
+        "Languages": ["Telugu"],
+        "CreatedBy":"Admin"
       },
       {
         "Title": "Ghazi Attack",
@@ -107,7 +114,8 @@
         "Dislikes": 15,
         "plot_summary": "Based on true events, the film explores the mysterious sinking of PNS Ghazi during the 1971 Indo-Pak war.",
         "Release_Year": 2017,
-        "Languages": ["Telugu"]
+        "Languages": ["Telugu"],
+        "CreatedBy":"Admin"
       },
       {
         "Title": "Mahanati",
@@ -121,7 +129,8 @@
         "Dislikes": 25,
         "plot_summary": "The biographical drama depicts the life of the legendary South Indian actress Savitri.",
         "Release_Year": 2018,
-        "Languages": ["Telugu"]
+        "Languages": ["Telugu"],
+        "CreatedBy":"Admin"
       }
                                                       
 ]

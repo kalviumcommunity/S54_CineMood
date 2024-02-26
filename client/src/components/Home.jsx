@@ -7,9 +7,10 @@ import Languages from './Home/Languages'
 import M_MovieCard from './MovieCards/M_MovieCard'
 import axios from 'axios'
 import { AppContext } from '../context/ParentContext'
+import UserMovies from './MovieCards/UserMovies'
 
 const Home = () => {
-  const {setSignedIn} = useContext(AppContext)
+  const {setSignedIn, setUserData} = useContext(AppContext)
 
   useEffect(()=>{
     const token = window.localStorage.getItem("token")
@@ -22,6 +23,7 @@ const Home = () => {
         })
           .then(response => {
             setSignedIn(true)
+            setUserData(response.data.data)
             document.cookie = `UserName=${response.data.data.Name}`;
           })
           .catch(error => {
@@ -35,6 +37,7 @@ const Home = () => {
       <Carousel />
       <SearchMood />
       <Languages />
+      <UserMovies/>
     </div>
   )
 }

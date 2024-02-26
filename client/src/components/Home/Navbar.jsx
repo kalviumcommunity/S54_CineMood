@@ -60,7 +60,6 @@ const Logout = ()=>{
 // NavBar component
 const NavBar = () => {
   const {signedIn} = useContext(AppContext)
-  console.log(signedIn)
 
   return (
     <Box w="100%" bg="transparent" pb={2} position={"fixed"} zIndex="10">
