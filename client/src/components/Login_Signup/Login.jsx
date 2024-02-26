@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from 'react';
+import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
+import axios from 'axios';
 
 
 import {
@@ -19,26 +20,52 @@ import {
   FormErrorMessage,
   Text,
 } from '@chakra-ui/react';
+import { AppContext } from '../../context/ParentContext';
 
 const Login = () => {
   const [show, setShow] = useState(false);
   const [cShow, setCShow] = useState(false);
   const handleClick = () => setShow(!show);
-  const handleClick2 = () => setCShow(!cShow);
   const [error, setError] = useState(null)
 
-  const { handleSubmit, register, formState: { errors, isSubmitting }, getValues } = useForm()
-  
+  const { handleSubmit, register, formState: { errors, isSubmitting } } = useForm()
+  const {signedIn, setSignedIn} = useContext(AppContext)
+
+  useEffect(() => {
+    console.log(signedIn);
+    
+    if (signedIn) {
+      window.location.href = "/home";
+    }
+  }, [signedIn]);
+
 
   const submitHandler = (values) => {
 
-    
     return new Promise((resolve) => {
       setTimeout(() => {
-        const {email,password} = values
-            resolve()
-        }, 1000)
-      })
+        axios.post("http://localhost:3000/login", values, {
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        })
+          .then(response => {
+            if (response.status == "201") {
+              localStorage.setItem('token', response.data.token);
+              setSignedIn(true)
+            } else {
+              console.log(response.data.message)
+              setError(response.data.message)
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        resolve()
+      }, 1000)
+    })
   }
 
   return (
@@ -48,20 +75,21 @@ const Login = () => {
           <Stack align="center">
             <Heading fontSize="2xl" color="white">Login To Your Account</Heading>
           </Stack>
+
           <VStack as="form" boxSize={{ base: 'xs', sm: 'sm', md: 'md' }} h="max-content !important" bg='#191e25' rounded="lg" boxShadow="lg" p={{ base: 5, sm: 10 }} spacing={8} color="white" onSubmit={handleSubmit(submitHandler)}>
+            <Text color="red" fontSize={"lg"}>{error&&error}</Text>
             <VStack spacing={4} w="100%">
               <FormControl>
                 <FormLabel htmlFor='email'>Email</FormLabel>
                 <Input rounded="md" id="email" type="email" {...register("email", { required: 'Enter Your email' })} />
                 <Text color="red">
                   {errors.email && errors.email.message}
-                  {error && error}
                 </Text>
               </FormControl>
               <FormControl >
                 <FormLabel htmlFor="password">Password</FormLabel>
                 <InputGroup size="md">
-                  <Input rounded="md" id="password" type={show ? 'text' : 'password'} {...register("password", {required:'Enter Password', minLength:{value:8, message:'Enter minimum 8 chars'},pattern:{value:'/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\])/', message:"Password Not Valid"}})}/>
+                  <Input rounded="md" id="password" type={show ? 'text' : 'password'} {...register("password", { required: 'Enter Password', minLength: { value: 8, message: 'Enter minimum 8 chars' }, pattern: { value: '/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\])/', message: "Password Not Valid" } })} />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" rounded="md" bg='#79b8f3' _hover={{ bg: useColorModeValue('gray.400', 'gray.800') }} onClick={handleClick}>
                       {show ? 'Hide' : 'Show'}
