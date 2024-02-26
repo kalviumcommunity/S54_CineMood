@@ -6,6 +6,7 @@ import Update_Delete from './Update_Delete';
 
 const M_MovieCard = ({Movie_Data}) => {
 
+  console.log(Movie_Data)
   return (
     <div>
         <Card maxW='sm'>
@@ -18,6 +19,7 @@ const M_MovieCard = ({Movie_Data}) => {
                     {Movie_Data.Title}
                     </Heading>
                     <Text color="#aaaaaa">Rating: {Movie_Data.Rating}</Text>
+                    <Text color="#aaaaaa">Created By: {Movie_Data.CreatedBy}</Text>
                 </VStack>
                 <Divider />
                 <Stack direction="row" spacing="2" alignItems="center">

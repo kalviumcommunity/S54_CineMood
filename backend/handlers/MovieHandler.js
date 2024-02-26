@@ -1,7 +1,7 @@
 const Movies = require("../DataBase/MovieSchema")
 
 const createMovie = async (req, res,) => {
-    const { Title, Title_Img, Rating, TrailerURL, CoverIMG, Moods, Play, plot_summary, Release_Year, Languages } = req.body
+    const { Title, Title_Img, Rating, TrailerURL, CoverIMG, Moods, Play, plot_summary, Release_Year, Languages, CreatedBy } = req.body
 
     try {
 
@@ -17,7 +17,8 @@ const createMovie = async (req, res,) => {
             Dislikes: 0,
             plot_summary,
             Release_Year,
-            Languages
+            Languages,
+            CreatedBy
         })
         res.status(201).json({ message: 'Movie uploaded successfully' })
 

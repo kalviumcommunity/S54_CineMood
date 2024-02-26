@@ -18,8 +18,8 @@ const Carousel = () => {
                                 <Heading>Baahubali: The Beginning</Heading>
 
                                 <HStack spacing={2} mt={4} ml={2}>
-                                    {moods.map((value) => {
-                                        return <Text>{value} |</Text>
+                                    {moods.map((value, id) => {
+                                        return <Text key={id}>{value} |</Text>
                                     })}
                                 </HStack>
 

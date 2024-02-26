@@ -13,7 +13,8 @@ const MovieSchema = new mongoose.Schema(
         Dislikes: Number,
         plot_summary: String,
         Release_Year: Number,
-        Languages: Array
+        Languages: Array,
+        CreatedBy:String
     }
 )
 

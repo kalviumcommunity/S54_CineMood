@@ -10,7 +10,8 @@ const validateMovie = joi.object({
     Play: joi.string().required(),
     plot_summary: joi.string().required(),
     Release_Year: joi.number().required(),
-    Languages: joi.array().required()
+    Languages: joi.array().required(),
+    CreatedBy:joi.string().required()
 })
 
 module.exports = validateMovie

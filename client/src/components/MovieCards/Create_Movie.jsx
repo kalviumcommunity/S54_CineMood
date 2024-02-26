@@ -8,7 +8,7 @@ const Create_Movie = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [scrollBehavior, setScrollBehavior] = React.useState('inside')
     const { handleSubmit, register, formState: { errors, isSubmitting }, getValues } = useForm()
-    const {MListRender, setMListRender} = useContext(AppContext)
+    const {MListRender, setMListRender, userData} = useContext(AppContext)
 
     const initialRef = React.useRef(null)
     const submitHandler = (values) => {
@@ -16,10 +16,10 @@ const Create_Movie = () => {
       return new Promise((resolve) => {
         setTimeout(() => {
           var {Title,Title_Img,Rating, TrailerURL,CoverIMG,Moods,Play,plot_summary,Release_Year,Languages} = values
-          console.log(values,Title,Title_Img,Rating, TrailerURL,CoverIMG,Moods,Play,plot_summary,Release_Year,Languages)
+          const CreatedBy = userData.Name
           Moods = Moods.split(',')
           Languages = Languages.split(',')
-          fetch("https://cinemood-b811.onrender.com/movies", {
+          fetch("http://localhost:3000/movies", {
           method: "POST",
           crossDomain: true,
           headers: {
@@ -28,7 +28,7 @@ const Create_Movie = () => {
             "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
-            Title,Title_Img,Rating, TrailerURL,CoverIMG,Moods,Play,plot_summary,Release_Year,Languages
+            Title,Title_Img,Rating, TrailerURL,CoverIMG,Moods,Play,plot_summary,Release_Year,Languages, CreatedBy
           })
         }).then((res) => res.json())
           .then((data) => {
@@ -121,6 +121,13 @@ const Create_Movie = () => {
                   {errors.Languages && errors.Languages.message}
                 </Text>
               </FormControl>
+              {/* <FormControl>
+                <FormLabel>Created By</FormLabel>
+                <Input ref={initialRef} placeholder='Enter Your Name' defaultValue={userData.Name}{...register("CreatedBy", { required: 'Enter Creator Name', minLength: { value: 4, message: 'Enter minimum 4 letters' } })}/>
+                <Text color="red">
+                  {errors.CreatedBy && errors.CreatedBy.message}
+                </Text>
+              </FormControl> */}
 
             </ModalBody>
   
