@@ -58,7 +58,7 @@ Explore CineMood on your machine with these steps:
 
 ### Run the Application
 
-`npm start`
+`npm run dev`
 
 Visit http://localhost:3000 in your browser to access CineMood.
 
