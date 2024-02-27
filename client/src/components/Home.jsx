@@ -14,7 +14,7 @@ const Home = () => {
 
   useEffect(()=>{
     const token = window.localStorage.getItem("token")
-    axios.post("http://localhost:3000/userData", {token}, {
+    axios.post("https://cinemood-b811.onrender.com/userData", {token}, {
           headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
