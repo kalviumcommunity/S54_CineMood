@@ -12,7 +12,7 @@ const UserMovies = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/user');
+                const response = await axios.get('https://cinemood-b811.onrender.com/user');
                 setUsers(response.data);
             } catch (error) {
                 console.error('Error fetching users:', error);

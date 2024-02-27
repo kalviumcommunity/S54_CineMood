@@ -19,7 +19,7 @@ const Create_Movie = () => {
           const CreatedBy = userData.Name
           Moods = Moods.split(',')
           Languages = Languages.split(',')
-          fetch("http://localhost:3000/movies", {
+          fetch("https://cinemood-b811.onrender.com/movies", {
           method: "POST",
           crossDomain: true,
           headers: {

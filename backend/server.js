@@ -21,7 +21,6 @@ app.use('/login', LoginRouter);
 app.post('/userData', UserDataHandler)
 
 async function connectMongoDB() {
-    console.log("process.env.MongoURI: ", process.env.MongoURI);
     try {
         await mongoose.connect(process.env.MongoURI)
         console.log("🚀Connected to MongoDB")
