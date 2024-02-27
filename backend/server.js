@@ -10,7 +10,7 @@ const MovieRouter = require("./routes/Movie")
 const LoginRouter = require("./routes/Login")
 const {UserDataHandler} = require("./handlers/UserDataHandler")
 
-app.use(cors({ credentials: true, origin: 'https://cinemood.vercel.app/' }));
+app.use(cors({ credentials: true, origin: 'https://cinemood.vercel.app' }));
 
 app.use(express.json())
 app.use(cookieParser());
