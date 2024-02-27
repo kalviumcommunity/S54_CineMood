@@ -56,7 +56,6 @@ const Login = () => {
               localStorage.setItem('token', response.data.token);
               setSignedIn(true)
             } else {
-              console.log(response.data.message)
               setError(response.data.message)
             }
           })
