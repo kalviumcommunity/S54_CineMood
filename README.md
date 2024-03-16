@@ -9,7 +9,7 @@ Unlock a world where your emotions guide your movie choices. CineMood goes beyon
 CineMood is your movie companion designed to cater to your unique feelings. No more scrolling endlessly – log in, express your mood, and let CineMood curate a personalized movie list for you.
 
 ## Deployed Links:
-- **Font-End:-** https://cinemood.vercel.app
+- **Font-End:-** https://cinemood.vercel.app/home
 - **Back-End:-** https://cine-mood-server.vercel.app
 
 ## ✨ Features
