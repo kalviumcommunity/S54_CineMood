@@ -10,26 +10,26 @@ import { AppContext } from '../context/ParentContext'
 import UserMovies from './MovieCards/UserMovies'
 
 const Home = () => {
-  const {setSignedIn, setUserData} = useContext(AppContext)
+  const { setSignedIn, setUserData } = useContext(AppContext)
 
-  useEffect(()=>{
+  useEffect(() => {
     const token = window.localStorage.getItem("token")
-    axios.post("https://cinemood-b811.onrender.com/userData", {token}, {
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
-        })
-          .then(response => {
-            setSignedIn(true)
-            setUserData(response.data.data)
-            document.cookie = `UserName=${response.data.data.Name}`;
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });
-  },[])
+    axios.post("https://cine-mood-server.vercel.app/userData", { token }, {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+      .then(response => {
+        setSignedIn(true)
+        setUserData(response.data.data)
+        document.cookie = `UserName=${response.data.data.Name}`;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, [])
 
   return (
     <div>
@@ -37,7 +37,7 @@ const Home = () => {
       <Carousel />
       <SearchMood />
       <Languages />
-      <UserMovies/>
+      <UserMovies />
     </div>
   )
 }

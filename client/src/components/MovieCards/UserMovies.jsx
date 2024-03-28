@@ -7,12 +7,12 @@ import M_MovieCard from './M_MovieCard'
 const UserMovies = () => {
     const [selectedUser, setSelectedUser] = useState("Admin")
     const [users, setUsers] = useState([])
-    const {movieList, MListRender, setMovieList} = useContext(AppContext)
+    const { movieList, MListRender, setMovieList } = useContext(AppContext)
 
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('https://cinemood-b811.onrender.com/user');
+                const response = await axios.get('https://cine-mood-server.vercel.app/user');
                 setUsers(response.data);
             } catch (error) {
                 console.error('Error fetching users:', error);
@@ -20,22 +20,21 @@ const UserMovies = () => {
         };
 
         fetchUsers();
-            const fetchMovies = async () => {
-              try {
-                const response = await fetch('https://cinemood-b811.onrender.com/movies');
+        const fetchMovies = async () => {
+            try {
+                const response = await fetch('https://cine-mood-server.vercel.app/movies');
                 if (!response.ok) {
-                  throw new Error('Failed to fetch movies');
+                    throw new Error('Failed to fetch movies');
                 }
-        
+
                 const data = await response.json();
                 setMovieList(data.data);
-                setIsLoading(false)
-              } catch (error) {
+            } catch (error) {
                 console.error('Error fetching movies:', error.message);
-              }
-            };
-        
-            fetchMovies();
+            }
+        };
+
+        fetchMovies();
     }, [MListRender]);
 
     return (
@@ -63,7 +62,6 @@ const UserMovies = () => {
                 <Flex wrap="wrap" justifyContent={'space-around'} bg="#00050D" rowGap={10} pt={8}>
                     {
                         movieList.filter((movie) => {
-                            console.log(movie.CreatedBy, selectedUser)
                             return movie.CreatedBy == selectedUser
                         }).map((movie_data, id) => {
                             return <M_MovieCard key={id} Movie_Data={movie_data} />

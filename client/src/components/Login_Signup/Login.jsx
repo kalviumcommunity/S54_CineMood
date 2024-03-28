@@ -29,11 +29,11 @@ const Login = () => {
   const [error, setError] = useState(null)
 
   const { handleSubmit, register, formState: { errors, isSubmitting } } = useForm()
-  const {signedIn, setSignedIn} = useContext(AppContext)
+  const { signedIn, setSignedIn } = useContext(AppContext)
 
   useEffect(() => {
     console.log(signedIn);
-    
+
     if (signedIn) {
       window.location.href = "/home";
     }
@@ -44,7 +44,7 @@ const Login = () => {
 
     return new Promise((resolve) => {
       setTimeout(() => {
-        axios.post("https://cinemood-b811.onrender.com/login", values, {
+        axios.post("https://cine-mood-server.vercel.app/login", values, {
           headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
@@ -76,7 +76,7 @@ const Login = () => {
           </Stack>
 
           <VStack as="form" boxSize={{ base: 'xs', sm: 'sm', md: 'md' }} h="max-content !important" bg='#191e25' rounded="lg" boxShadow="lg" p={{ base: 5, sm: 10 }} spacing={8} color="white" onSubmit={handleSubmit(submitHandler)}>
-            <Text color="red" fontSize={"lg"}>{error&&error}</Text>
+            <Text color="red" fontSize={"lg"}>{error && error}</Text>
             <VStack spacing={4} w="100%">
               <FormControl>
                 <FormLabel htmlFor='email'>Email</FormLabel>

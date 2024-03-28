@@ -9,7 +9,7 @@ const ParentContext = ({ children }) => {
     const [signedIn, setSignedIn] = useState(false)
     const [userData, setUserData] = useState({})
 
-    return <AppContext.Provider value={{ movieList,setMovieList,language, setLanguage, MListRender, setMListRender, signedIn, setSignedIn, userData, setUserData }}>
+    return <AppContext.Provider value={{ movieList, setMovieList, language, setLanguage, MListRender, setMListRender, signedIn, setSignedIn, userData, setUserData }}>
         {children}
     </AppContext.Provider>
 }

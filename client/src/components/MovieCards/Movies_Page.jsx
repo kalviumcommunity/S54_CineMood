@@ -9,10 +9,8 @@ import { HashLoader } from "react-spinners"
 
 function Movies_Page() {
   const { movieList, language, setLanguage } = useContext(AppContext)
-  const [isLoading, setIsLoading] = useState(true)
 
   const tabsHandler = (e) => {
-    console.log(e)
     switch (e) {
       case 0: setLanguage("All")
         break;
@@ -51,7 +49,7 @@ function Movies_Page() {
         </TabList>
 
       </Tabs>
-      {isLoading &&
+      {movieList.length == 0 &&
         <Box bg="#00050D">
           <Center py="250">
             <HashLoader color="#1a98ff" size={75} />

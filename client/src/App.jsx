@@ -15,13 +15,13 @@ function App() {
       <ParentContext>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Signin/>}/>
-            <Route path='/login' element={<Login/>}/>
-            <Route path='/home' element={<Home/>}/>
-            <Route path='/movies' element={<Movies_Page/>}/>
+            <Route path='/' element={<Signin />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/movies' element={<Movies_Page />} />
           </Routes>
         </BrowserRouter>
-        <ParentContext/>
+        <ParentContext />
       </ParentContext>
     </ChakraProvider>
   )

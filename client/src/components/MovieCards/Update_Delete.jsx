@@ -10,20 +10,20 @@ const Update_Delete = ({ Movie_Data }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [scrollBehavior, setScrollBehavior] = React.useState('inside')
     const { handleSubmit, register, formState: { errors, isSubmitting }, setValue } = useForm()
-    const {MListRender, setMListRender} = useContext(AppContext)
+    const { MListRender, setMListRender } = useContext(AppContext)
 
     const initialRef = React.useRef(null)
-    
+
     const submitHandler = (values) => {
 
         return new Promise((resolve) => {
             setTimeout(() => {
                 values.Moods = values.Moods.split(',')
                 values.Languages = values.Languages.split(',')
-                axios.put(`https://cinemood-b811.onrender.com/movies/${Movie_Data._id}`, values)
+                axios.put(`https://cine-mood-server.vercel.app/movies/${Movie_Data._id}`, values)
                     .then(response => {
                         console.log(response.data);
-                        setMListRender(MListRender+1)
+                        setMListRender(MListRender + 1)
                         onClose()
                     })
                     .catch(error => {
@@ -35,14 +35,14 @@ const Update_Delete = ({ Movie_Data }) => {
     }
     const handleDelete = () => {
         axios.delete(`https://cinemood-b811.onrender.com/movies/${Movie_Data._id}`)
-          .then(response => {
-            console.log(response.data);
-            setMListRender(MListRender+1)
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      };
+            .then(response => {
+                console.log(response.data);
+                setMListRender(MListRender + 1)
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    };
 
     return (
         <Box position="absolute" top={5} right={5}>

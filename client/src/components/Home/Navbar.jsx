@@ -30,8 +30,6 @@ const MenuLinks = () => (
     justifyContent="space-between"
     mt={{ base: 4, md: 0 }}
   >
-    <Input colorScheme="gray" color="white" placeholder="Search for movies" border="1px solid #33373D" htmlSize={25} width="auto" />
-    <IconButton variant="ghost" colorScheme="gray" color="#aaaaaa" _hover={{ color: "white" }} _active={{ bg: "#0f1111", color: "white" }}><SearchIcon /></IconButton>
     <Button variant="ghost" colorScheme="gray" color="#aaaaaa" _hover={{ color: "white" }} _active={{ bg: "#0f1111", color: "white" }}>Home</Button>
     <Button variant="ghost" colorScheme="gray" color="#aaaaaa" _hover={{ color: "white" }} _active={{ bg: "#0f1111", color: "white" }}>Trending</Button>
     <Button variant="ghost" colorScheme="gray" color="#aaaaaa" _hover={{ color: "white" }} _active={{ bg: "#0f1111", color: "white" }}>My List</Button>
@@ -47,19 +45,19 @@ const MenuLinks = () => (
       mx={5}
     /> */}
 
-    {}
+    { }
   </Flex>
 );
 
-const Logout = ()=>{
+const Logout = () => {
   Cookies.remove('UserName')
   localStorage.clear();
-  window.location.href='/login'
+  window.location.href = '/login'
 }
 
 // NavBar component
 const NavBar = () => {
-  const {signedIn} = useContext(AppContext)
+  const { signedIn } = useContext(AppContext)
 
   return (
     <Box w="100%" bg="transparent" pb={2} position={"fixed"} zIndex="10">
@@ -68,17 +66,17 @@ const NavBar = () => {
         mx="auto"
         p={2}
         bg="#00050D"
-        rounded="50"
+        rounded="10"
         border="1px solid #191e25"
         boxShadow="0px 14px 28px rgba(0, 0, 0, 1), 0px 10px 10px rgba(0, 0, 0, 0.25)"
         position="relative"
         mt={4}
       >
-        <Flex justify="space-between" align="center">
+        <Flex justify="space-around" align="center">
           <Logo />
           <Spacer />
           <MenuLinks />
-          {signedIn? <Button variant="ghost" colorScheme="gray" color="#aaaaaa" _hover={{ color: "white" }} _active={{ bg: "#0f1111", color: "white" }} onClick={Logout}>Logout</Button>:<Button variant="ghost" colorScheme="gray" color="#aaaaaa" _hover={{ color: "white" }} _active={{ bg: "#0f1111", color: "white" }}>Login</Button>}
+          {signedIn ? <Button variant="ghost" colorScheme="gray" color="#aaaaaa" _hover={{ color: "white" }} _active={{ bg: "#0f1111", color: "white" }} onClick={Logout}>Logout</Button> : <Button variant="ghost" colorScheme="gray" color="#aaaaaa" _hover={{ color: "white" }} _active={{ bg: "#0f1111", color: "white" }}>Login</Button>}
         </Flex>
       </Box>
     </Box>

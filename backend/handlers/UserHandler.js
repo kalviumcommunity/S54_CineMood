@@ -34,7 +34,7 @@ const createHandler = async (req, res) => {
 
 const getAllUsersHandler = async (req, res) => {
     try {
-        const allUsers = await Users.find(); // Assuming Users is your mongoose model
+        const allUsers = await Users.find();
         res.status(200).json(allUsers);
     } catch (error) {
         console.error(error);

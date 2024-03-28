@@ -85,8 +85,8 @@ const Languages = () => {
                 </Box>
             </Box>
             <HStack alignItems={'center'} mx={'auto'} color="white" w="100%" bg="#00050D">
-                <ArrowLeftIcon m="1%" onClick={leftFocus} _hover={{ 'color': leftState?"#1A98FF":"#00050D"}} cursor="pointer" color={leftState?"white":"#00050D"}/>
-                
+                <ArrowLeftIcon m="1%" onClick={leftFocus} _hover={{ 'color': leftState ? "#1A98FF" : "#00050D" }} cursor="pointer" color={leftState ? "white" : "#00050D"} />
+
                 <Box
                     display="flex"
                     overflowX="auto"
@@ -109,8 +109,8 @@ const Languages = () => {
                         return <Language_card key={id} Name={language.Name} IMG_LINK={language.IMG_LINK} />
                     })}
                 </Box>
-                <ArrowRightIcon m="0.5%" onClick={rightFocus} _hover={{'color':rightState?"#1A98FF":"#00050D"}} cursor="pointer" color={rightState?"white":"#00050D"}/>
-                
+                <ArrowRightIcon m="0.5%" onClick={rightFocus} _hover={{ 'color': rightState ? "#1A98FF" : "#00050D" }} cursor="pointer" color={rightState ? "white" : "#00050D"} />
+
             </HStack>
         </Box>
 
